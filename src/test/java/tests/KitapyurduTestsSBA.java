@@ -11,7 +11,7 @@ import utilities.ReusableMethods;
 
 public class KitapyurduTestsSBA {
 
-    KitapyurduPagesSBA pages = new KitapyurduPagesSBA(Driver.getDriver());
+    KitapyurduPagesSBA pages = new KitapyurduPagesSBA();
     Actions actions = new Actions(Driver.getDriver());
 
     @Test

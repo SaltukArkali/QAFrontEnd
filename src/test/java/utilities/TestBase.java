@@ -18,7 +18,7 @@ public class TestBase {
 
     @BeforeMethod
     public void setup() {
-        Driver.getDriver().get(ConfigReader.getProperty("demoqa"));
+        Driver.getDriver().get(ConfigReader.getProperty("way2Automation"));
 
         actions = new Actions(Driver.getDriver());
         wait = new WebDriverWait(Driver.getDriver(),20);
