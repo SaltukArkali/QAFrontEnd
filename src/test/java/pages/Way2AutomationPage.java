@@ -68,4 +68,14 @@ public class Way2AutomationPage {
     public WebElement feedbackText;
 
 
+    //sortable
+
+    @FindBy(xpath = "//h2[.='Sortable']" )
+    public WebElement sortableLink;
+
+    @FindBy(xpath = "//li[@class='ui-state-default ui-sortable-handle']")
+    public List<WebElement> sortableList1;
+
+
+
 }
