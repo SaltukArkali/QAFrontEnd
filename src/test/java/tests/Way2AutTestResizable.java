@@ -1,6 +1,5 @@
 package tests;
 
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -10,13 +9,11 @@ import pages.Way2AutomationPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
-import utilities.TestBase;
 
-import javax.print.attribute.standard.ReferenceUriSchemesSupported;
+public class Way2AutTestResizable {
 
-public class Way2AutomationTest extends TestBase {
 
-    Way2AutomationPage pageElements = new Way2AutomationPage(Driver.getDriver());
+    Way2AutomationPage pageElements = new Way2AutomationPage();
     Actions actions=new Actions(Driver.getDriver());
 
     @BeforeMethod
@@ -31,42 +28,51 @@ public class Way2AutomationTest extends TestBase {
         pageElements.submitButton.click();
     }
 
+
     @Test
     public void defaultFunctionality(){
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         ReusableMethods.waitFor(2);
-        pageElements.draggableLink.click();
+        pageElements.resizableLink.click();
         ReusableMethods.waitFor(2);
         Driver.getDriver().switchTo().frame(0);
-        String value1= pageElements.draggableBox.getAttribute("style");
-        System.out.println(value1);
-        Assert.assertEquals(value1,"position: relative;");
-        actions.clickAndHold(pageElements.draggableBox).perform();
+        String valueBefore = pageElements.getResizableValue.getAttribute("style");
+        System.out.println("Before = " + valueBefore);
+        Assert.assertTrue(valueBefore.isEmpty());
+        actions.clickAndHold(pageElements.cursorResizable.get(0)).build().perform();
+        actions.moveByOffset(200,100).perform();
+        ReusableMethods.waitFor(1);
+        String valueAfter = pageElements.getResizableValue.getAttribute("style");
+        System.out.println("After = " + valueAfter);
+        Assert.assertEquals(valueAfter,"width: 350px; height: 250px;");
+
+    }
+    @Test
+    public void animate(){
         ReusableMethods.waitFor(2);
-        actions.moveByOffset(100,150).perform();
-        String value2= pageElements.draggableBox.getAttribute("style");
-        System.out.println(value2);
-        Assert.assertNotEquals(value2,"position: relative;");
-        Assert.assertTrue(value2.contains("width"));
-        actions.release().perform();
-    }
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(2);
+        pageElements.resizableLink.click();
+        ReusableMethods.waitFor(2);
 
-    @Test
-    public void constrainMovement(){
+
 
     }
     @Test
-    public void cursorStyle(){
+    public void constrainResizeArea(){
 
     }
     @Test
-    public void events(){
+    public void helper(){
 
     }
     @Test
-    public void draggableSortable(){
+    public void maxMinSize(){
 
     }
+
+
+
 
 }

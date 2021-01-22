@@ -13,7 +13,7 @@ import utilities.ReusableMethods;
 
 public class KitapyurduTests {
 
-    KitapyurduPages pages = new KitapyurduPages(Driver.getDriver());
+    KitapyurduPages pages = new KitapyurduPages();
     Actions actions = new Actions(Driver.getDriver());
 
     //    @Test
