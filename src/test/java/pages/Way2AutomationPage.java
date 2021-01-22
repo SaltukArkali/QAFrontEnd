@@ -76,6 +76,27 @@ public class Way2AutomationPage {
     @FindBy(xpath = "//li[@class='ui-state-default ui-sortable-handle']")
     public List<WebElement> sortableList1;
 
+    //Accordion
 
+    @FindBy(xpath = "//h2[.='Accordion']" )
+    public WebElement accordionLink;
+
+    @FindBy(xpath = "//*[.='Customize icons']")
+    public WebElement customizeIconsLink;
+
+    @FindBy(xpath = "//h3")
+    public List<WebElement> sectionList;
+
+    @FindBy(xpath = "//h3[contains(text(),'Section ')]")
+    public List<WebElement> selectionList;
+
+    @FindBy(xpath = "//p")
+    public List<WebElement> paragrafList;
+
+    @FindBy(xpath = "//*[.='Fill Space']")
+    public WebElement fillSpaceLink;
+
+    @FindBy(xpath = "//div[@class='ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se']")
+    public WebElement accordionCursor;
 
 }
