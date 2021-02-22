@@ -84,10 +84,17 @@ public class SelEasyTest01 {
         Assert.assertEquals(selEasyPage01.displayTotalValue.getText(),"9");
         Assert.assertTrue(selEasyPage01.displayTotalValue.isDisplayed());
 
-
-
-
     }
 
 }
+
+//        TC0101	The user clicks on "Start Practicing"
+//        TC0102	The user clicks on "Simple Form Demo"
+//        TC0103	"Kullanici, Single Input Field basligi altindaki ""Enter message"" box'ina mesaj yazdidinda ve
+//        ""Show Message"" butonuna tikladiginda ""Your Message:"" kisminda mesaj box'ina yazmis
+//        oldugu mesaji gormeli ve dogrulamalidir"
+//        TC0104	"Kullanici, Two Input Fields basligi altindaki ""Enter a"" ve ""Enter b"" box'larina sayisal degerler
+//        disinda karakter girdiginde ve ""Get Total"" butonuna tiladiginda ""Total a + b = NaN"" mesajini
+//        almali ve bunu dogrulamalidir. Sayisal degerler girdiginde ""Total a + b = ..."" girdigi rakamlarin
+//        toplamini almali ve bunu dogrulayabilmelidir."
 
