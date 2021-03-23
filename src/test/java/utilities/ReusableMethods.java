@@ -126,4 +126,27 @@ public class ReusableMethods {
         }
         return data;
     }
+
+    // ======= RGB to HEX ==== //
+
+    public static String getHexColor(WebElement element, String cssValue) {
+        String color = element.getCssValue(cssValue); // RGB
+        String hex = "";
+        int r, g, b = 0;
+        if (color.contains("rgba")) {
+            String[] numbers = color.replace("rgba(", "").replace(")", "").split(",");
+            r = Integer.parseInt(numbers[0].trim());
+            g = Integer.parseInt(numbers[1].trim());
+            b = Integer.parseInt(numbers[2].trim());
+            hex = "#" + Integer.toHexString(r) + Integer.toHexString(g) + Integer.toHexString(b);
+        } else {
+            String[] numbers = color.replace("rgb(", "").replace(")", "").split(",");
+            r = Integer.parseInt(numbers[0].trim());
+            g = Integer.parseInt(numbers[1].trim());
+            b = Integer.parseInt(numbers[2].trim());
+            hex = "#" + Integer.toHexString(r) + Integer.toHexString(g) + Integer.toHexString(b);
+        }
+        return hex;
+    }
+
 }
