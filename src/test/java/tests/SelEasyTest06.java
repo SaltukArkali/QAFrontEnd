@@ -111,10 +111,12 @@ public class SelEasyTest06 {
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         for (WebElement w:selEasyPage06.boxList){
             Assert.assertTrue(w.isDisplayed());
+            Assert.assertFalse(w.isEnabled());
         }
         selEasyPage06.filterButton.click();
         for (WebElement w:selEasyPage06.boxList){
             Assert.assertFalse(w.isDisplayed());
+            Assert.assertTrue(w.isEnabled());
         }
         ReusableMethods.waitFor(2);
         selEasyPage06.firstNameBox.sendKeys("B");
